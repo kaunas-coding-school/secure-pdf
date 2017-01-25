@@ -3,3 +3,4 @@ https://kaunas-coding-school.github.io/secure-pdf/
 Aurimas: Labas
 Martynas: Labas paciam
 Aurimas:Kada laistom projekta? override
+Aurimas: serverio paleidimo komanda browser-sync start -s -f .
