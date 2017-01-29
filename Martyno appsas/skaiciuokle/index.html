@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Fasadinių ALTRAD pastolių skaičiuoklė</title>
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <link rel="stylesheet" href="print.css" type="text/css" />
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="form.js"></script>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div id="formView">    
+            <div id="form">    
+                <div id="hinput">
+                    <p>Norimas pastolių aukštis metrais:</p>
+                    <input id="h" type="number"/>
+                    <p id = "warnH"></p>
+                </div>
+                <div id="linput">
+                    <p>Norimas pastolių ilgis metrais:</p>
+                    <input id="l" type="number"/>
+                    <p id = "warnL"></p>
+                </div>
+                <div id="ladderinput">
+                    <p>Norimas sekcijų su kopetėlėmis skaičius:</p>
+                    <input id="ladder" type="number"/>
+                    <p id=warnLadder></p>
+                </div>
+                <div>
+                    <button type="button" onclick="fasValid()" id="button">Skaičiuoti</button>
+                </div>
+                <div id="nonStand" style = display:none>
+                    <p >Dėl nestandartinių sprendimų, kreipkitės į mūsų specialistus.</p>
+                    <a target="_blank" href="http://www.transrifus.lt/lt/kontaktai/kontaktiniai-asmenys">Kontaktai</a>
+                </div>
+            </div>
+        </div>
+        <div id="printView" style = display:none>
+            <div id="print"> 
+                <div id="pHead">
+                    <img src="img/logo.png" id="tlogo"></img>
+                    <div>
+                        <h1>Komercinis pasiūlymas</h1>
+                        <h3>Nauji fasadinai pastoliai ALTRAD PLIUS</h3>
+                    </div>
+                    <img src="img/altrad_logo.png" id="alogo"></img>
+                </div>
+                <div id="pInfo">
+                    <div id="pInfoLeft">
+                        <table>
+                            <tr class="underline">
+                                <td>Pastolių aukštis, m:</td>
+                                <td id="pH">0</td>
+                            </tr>
+                            <tr class="underline">
+                                <td>Pastolių darbinis aukštis, m:</td>
+                                <td id="pHd">0</td>
+                            </tr>
+                            <tr class="underline">
+                                <td>Viršutinio pakloto aukštis, m: </td>
+                                <td id="pHvp">0</td>
+                            </tr>
+                            <tr class="underline">
+                                <td>Pastolių ilgis, m:</td>
+                                <td id="pL">0</td>
+                            </tr>
+                            <tr class="underline">
+                                <td>Pastolių plotis, m:</td>
+                                <td>0.7</td>
+                            </tr>
+                            <tr>
+                                <td>Apstatymo plotas, m²:</td>
+                                <td id="pHL">0</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="pInfoRight">
+                        <table>
+                            <tr class="underline">
+                                <td>Sekcijų skaičius vertikalia kryptimi, vnt.:</td>
+                                <td id="secV">0</td>
+                            </tr>
+                            <tr class="underline">
+                                <td>Sekcijų skaičius horizontalia kryptimi, vnt.:</td>
+                                <td id="secH">0</td>
+                            </tr>
+                            <tr class="underline">
+                                <td>Sekcijų su įstrižainėmis skaičius, vnt.:</td>
+                                <td id="secDiag">0</td>
+                            </tr>
+                            <tr>
+                                <td>Sekcijų su kopetėlėmis skaičius, vnt.:</td>
+                                <td id="pLadder">0</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="pBody">    
+                    <table>
+                            <div class="th">
+                                <tr>
+                                    <td rowspan="2">Artikulas</td>
+                                    <td rowspan="2">Elemento pavadinimas</td>
+                                    <td rowspan="2">Kiekis, vnt.</td>
+                                    <td colspan=2>Masė, kg</td>
+                                    <td colspan=2>Kaina, EUR</td>
+                                </tr>
+                            </div>
+                            <div class="th">
+                                <tr>
+                                    <td>Vieno elem.</td>
+                                    <td>Visų elem.</td>
+                                    <td>Vieno elem.</td>
+                                    <td>Visų elem.</td>
+                                </tr>
+                            </div>
+                            <tr id="e511204">
+                                <td>e511204</td>
+                                <td>Reguliuojamas padas (domkratas) H40</td>
+                                <td id="e511204q"></td>
+                                <td>4.3</td>
+                                <td id="e511204m"></td>
+                                <td>11.0</td>
+                                <td id="e511204p"></td>
+                            </tr>
+                            <tr id="e283830">
+                                <td>e283830</td>
+                                <td>Apatinė horizontalė L307</td>
+                                <td id="e283830q"></td>
+                                <td>10.4</td>
+                                <td id="e283830m"></td>
+                                <td>42.0</td>
+                                <td id="e283830p"></td>
+                            </tr>
+                            <tr id="e202026">
+                                <td>e202026</td>
+                                <td>Vertikalus rėmas B73 H200 PLIUS</td>
+                                <td id="e202026q"></td>
+                                <td>19.7</td>
+                                <td id="e202026m"></td>
+                                <td>45.0</td>
+                                <td id="e202026p"></td>
+                            </tr>
+                            <tr id="e202023">
+                                <td>e202023</td>
+                                <td>Viršutinio aptvėrimo rėmas B73 "H" PLIUS</td>
+                                <td id="e202023q"></td>
+                                <td>11.3</td>
+                                <td id="e202023m"></td>
+                                <td>42.0</td>
+                                <td id="e202023p"></td>
+                            </tr>
+                            <tr id="e202091">
+                                <td>e202091</td>
+                                <td>Viršutinio aptvėrimo stovas B73 "L" PLIUS</td>
+                                <td id="e202091q"></td>
+                                <td>5.8</td>
+                                <td id="e202091m"></td>
+                                <td>23.0</td>
+                                <td id="e202091p"></td>
+                            </tr>
+                            <tr id="e283630">
+                                <td>e283630</td>
+                                <td>Turėklas L307</td>
+                                <td id="e283630q"></td>
+                                <td>5.5</td>
+                                <td id="e283630m"></td>
+                                <td>11.0</td>
+                                <td id="e283630p"></td>
+                            </tr>
+                            <tr id="e283907">
+                                <td>e283907</td>
+                                <td>Turėklas galinis dvigubas B73</td>
+                                <td id="e283907q"></td>
+                                <td>3.7</td>
+                                <td id="e283907m"></td>
+                                <td>16.0</td>
+                                <td id="e283907p"></td>
+                            </tr>
+                            <tr id="e284730">
+                                <td>e284730</td>
+                                <td>Įstrižainė L307 H200</td>
+                                <td id="e284730q"></td>
+                                <td>8.3</td>
+                                <td id="e284730m"></td>
+                                <td>16.0</td>
+                                <td id="e284730p"></td>
+                            </tr>
+                            <tr id="e491630">
+                                <td>e491630</td>
+                                <td>Paklotas plieninis L307, B32 U ECO</td>
+                                <td id="e491630q"></td>
+                                <td>22.2</td>
+                                <td id="e491630m"></td>
+                                <td>36.0</td>
+                                <td id="e491630p"></td>
+                            </tr>
+                            <tr id="e492330">
+                                <td>e492330</td>
+                                <td>Aikštelė su kopėčiomis aliuminė L307, B61</td>
+                                <td id="e492330q"></td>
+                                <td>30.7</td>
+                                <td id="e492330m"></td>
+                                <td>170.0</td>
+                                <td id="e492330p"></td>
+                            </tr>
+                            <tr id="e286830">
+                                <td>e286830</td>
+                                <td>Borto lenta L307</td>
+                                <td id="e286830q"></td>
+                                <td>7.9</td>
+                                <td id="e286830m"></td>
+                                <td>10.0</td>
+                                <td id="e286830p"></td>
+                            </tr>
+                            <tr id="e286807">
+                                <td>e286807</td>
+                                <td>Borto lenta galinė B73</td>
+                                <td id="e286807q"></td>
+                                <td>1.7</td>
+                                <td id="e286807m"></td>
+                                <td>5.5</td>
+                                <td id="e286807p"></td>
+                            </tr>
+                            <tr id="e286606">
+                                <td>e286606</td>
+                                <td>Pastolių laikiklis 0.8m</td>
+                                <td id="e286606q"></td>
+                                <td>2.7</td>
+                                <td id="e286606m"></td>
+                                <td>7.0</td>
+                                <td id="e286606p"></td>
+                            </tr>
+                            <tr id="e581119">
+                                <td>e581119</td>
+                                <td>Spyna kampinė 49x49</td>
+                                <td id="e581119q"></td>
+                                <td>0.8</td>
+                                <td id="e581119m"></td>
+                                <td>4.5</td>
+                                <td id="e581119p"></td>
+                            </tr>
+                            <tr id="varz190">
+                                <td>-</td>
+                                <td>Varžtas ankeriui L190</td>
+                                <td id="varz190q"></td>
+                                <td>0.4</td>
+                                <td id="varz190m"></td>
+                                <td>1.5</td>
+                                <td id="varz190p"></td>
+                            </tr>
+                            <tr id="sum">
+                                <td colspan="4" class="alignRight">Viso:</td>
+                                <td id="sumM"></td>
+                                <td class="alignRight">Suma:</td>
+                                <td id="sumP"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="alignRight">1 m² kaina be PVM:</td>
+                                <td id="1m"></td>
+                                <td colspan="3" class="alignRight">PVM suma 21%:</td>
+                                <td id="PVM"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="alignRight">1 m² kaina su PVM:</td>
+                                <td id="1mPVM"></td>
+                                <td colspan="3" class="alignRight">Bendra suma:</td>
+                                <td id="sumPVM"></td>
+                            </tr>
+                    </table>
+                </div>
+                <div id="pNotes">
+                    <div id="pNotesLeft">    
+                        <p>
+                            Pastolių pagrindinės sekcijos matmenys: Ilgis - 3.07m, plotis - 0.73m, aukštis - 2m.
+                            <br/>Pastolių viršutinės sekcijos matmenys: Ilgis - 3.07m, plotis - 0.73m, aukštis - 1m.
+                            <br/>Pastoliai yra sertifikuoti ir atitinka visus saugumo reikalavimus.
+                            <br/>Pastoliai turi instrukcijas lietuvių kalba.
+                            <br/>Nurodytos kainos - kainininko.
+                        </p>
+                        <p>Būtų malonu, jei šis pasiūlymas virstų sandoriu.</p>
+                    </div>
+                    <div id="pNotesRight">
+                        <button type="button" onclick="javascript:window.print()" id="buttonP">Spausdinti</button>
+                    </div>
+                </div>
+                <hr/>
+                <div id="pFoot">
+                    <div id="credo">
+                        <p>
+                            UAB "Transrifus"<br/>
+                            Liepų g. 34A, Garliava,
+                            LT-53205, Kauno r.<br/>
+                            Tel. +370 37 33 74 10
+                            Faks. +370 37 33 74 11<br/>
+                            <a href="http://www.transrifus.lt">www.transrifus.lt</a>
+                        </p>
+                    </div>
+                    <div id="bankInfo">
+                        <p>
+                            Atsisk. sąskaita: LT197044060003607768<br/>
+                            SEB Bankas<br/>
+                            Įmonės kodas: 160417519<br/>
+                            PVM mokėtojo kodas LT604175113<br/>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

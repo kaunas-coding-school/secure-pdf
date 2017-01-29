@@ -1,0 +1,174 @@
+@media print
+{
+    html, body
+    {
+        font-size:medium;
+        font-family:'Montserrat', serif, sans-serif, cursive;
+        color:#000033;
+        height:99%;
+    }
+
+    #formView, #buttonP
+    {
+       display:none;
+    }
+    
+    #printView
+    {
+        page-break-after:avoid;
+        width:99%;
+        height:99%;
+        position:relative;
+    }
+    #print
+    {
+        position:absolute;
+        width:99%;
+        left:52.5%;
+        font-family: 'Montserrat', sans-serif;
+        font-size:small;
+        page-break-after:avoid;
+    }
+    #print:last-child 
+    {
+        page-break-after: auto;
+    }
+    
+    /*print head*/
+    #pHead
+    {
+        position:relative;
+        height:5em;
+    }
+    #tlogo
+    {
+        width:15em;
+        position:absolute;
+    }
+    #pHead > div
+    {
+        position:absolute;
+        left:11em;
+        right:7em;
+        text-align:center;
+    }
+    #pHead h1,h3
+    {
+        margin-top:0;
+        padding-top:0;
+        margin-bottom:0em;
+    }
+    #alogo
+    {
+        position:absolute;
+        width:7em;
+        right:0em;
+        margin-right:0;
+    }
+
+    /*print info*/
+    #pInfo
+    {
+        height:10em;
+        position:relative;
+    }
+
+    #pInfoLeft
+    {
+        width:27.5em;
+        position:absolute;
+        left:0em;
+    }
+    #pInfo table
+    {
+        border-collapse:collapse;
+    }
+    .underline td
+    {
+        padding-left:0;
+        padding-right:1px;
+        margin-left:0;
+        margin-right:0;
+        border-bottom: 2px solid#e68a00;
+    }
+    #pInfoRight
+    {
+        width:27.5em;
+        position:absolute;
+        right:0em;
+        border:0px;
+    }
+    #pInfoRight table
+    {
+        position:absolute;
+        right:0;
+    }
+
+    /*print body*/
+    #pBody table
+    {
+        text-align:center;
+        border-spacing:0px;
+        border:0.3em solid #e68a00;
+    }
+
+    /*print notes*/
+    #pNotes
+    {
+
+        position:relative;
+        height:9em;
+    }
+    #pNotesLeft
+    {
+        position:absolute;
+        left:0em;
+    }
+    #pNotesRight
+    {
+        position:absolute;
+        right:0em;
+        top:3em;
+    }
+
+    /*print footer*/
+    #pFoot
+    {
+        position:relative;
+        height:4em;
+    }
+    #credo
+    {
+        position:absolute;
+        left:0;
+    }
+    #bankInfo
+    {
+        position:absolute;
+        right:0;
+    }
+
+    #pBody td
+    {
+        border:1px solid black;
+        margin:0px 0px 0px 0px;
+    }
+    .alignRight
+    {
+        text-align:right;
+        border:0px;
+    }
+    .emptytd
+    {
+        border:0px;
+    }
+    hr
+    {
+        height:1px;
+    }
+    #pFoot p
+    {
+        margin-top:0;
+        margin-bottom:0;
+    }
+}
